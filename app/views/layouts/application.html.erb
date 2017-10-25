@@ -11,7 +11,10 @@
   <body>
     <div class='container'>
     <ul class='nav nav-tabs'>
-       <li><%= link_to "Home", root_path %></li>
+      <% if user_signed_in? %>
+       <li><%= link_to "My Bookmarks", topics_index_path %></li>
+      <% end %>
+       <li> <%= link_to "Home", root_path %></li>
        <li> </li>
      </ul>
     <% if user_signed_in? %>

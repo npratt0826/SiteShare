@@ -1,0 +1,18 @@
+
+<div class="row"><br>
+    <div class="col-md-8">
+        <p class="lead">
+          <%= @topic.title %>
+          <%= link_to "New Bookmark", new_topic_bookmark_path(@topic, @bookmark), class: 'btn btn-success' %>
+        </p>
+        <% @topic.bookmarks.each do |b| %>
+        <div class="media">
+            <div class="media-body">
+                <h4 class="media-heading">
+                    <%= link_to b.url, b.url %>
+                </h4>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>

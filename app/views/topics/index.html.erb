@@ -1,0 +1,23 @@
+<h1>Topics Index</h1>
+<p>Create topics</p>
+
+<div class='row'>
+  <div>
+    <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+  </div>
+
+  <div class="col-md-8">
+       <% @topics.each do |topic| %>
+         <div class="media">
+           <div class="media-body">
+             <h4 class="media-heading">
+               <%= link_to topic.title, topic %>
+             </h4>
+             <small>
+               <%= time_ago_in_words(topic.created_at) %>
+             </small>
+           </div>
+         </div>
+       <% end %>
+  </div>
+</div>
