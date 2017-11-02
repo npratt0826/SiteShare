@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @bookmarks = @topic.bookmarks.all
+    @bookmark = Bookmark.find(params[:id])
   end
 
   def new
@@ -23,6 +23,18 @@ class TopicsController < ApplicationController
       flash.now[:alert] = "Error creating topic. Please try again."
       render :new
     end
+  end
+
+  def destroy
+    @topic = Topic.find(params[:id])
+
+    if @topic.destroy
+      flash[:notice] = "topic deleted"
+      redirect_to topics_index_url
+    else
+      flash[:alert] = "There was an error deleting this topic"
+    end
+    puts "topic destroy from controller"
   end
 
   def edit

@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
   def show
     @bookmark = Bookmark.find(params[:id])
   end
-  
+
   def index
     @bookmarks = Bookmark.all
   end
@@ -26,6 +26,21 @@ class BookmarksController < ApplicationController
   end
 
   def edit
+    @bookmark = Bookmark.find(params[:id])
+  end
+
+  def update
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.assign_attributes(bookmark_params)
+
+    if @bookmark.save
+      flash[:notice] = "Bookmark was updated."
+       redirect_to [@bookmark.topic, @bookmark]
+     else
+       flash.now[:alert] = "There was an error saving the bookmark. Please try again."
+       render :edit
+     end
+
   end
 
   private
