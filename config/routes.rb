@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :topics
 
   resources :topics, only: [] do
-    resources :bookmarks, only: [:create, :new, :destroy, :edit, :update]
+    resources :bookmarks, except: [:index, :show]
   end
 
   root 'welcome#index'

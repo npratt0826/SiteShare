@@ -1,8 +1,8 @@
 class BookmarksController < ApplicationController
 
-  def show
-    @bookmark = Bookmark.find(params[:id])
-  end
+  # def show
+  #   @bookmark = Bookmark.find(params[:id])
+  # end
 
   def index
     @bookmarks = Bookmark.all
@@ -35,12 +35,22 @@ class BookmarksController < ApplicationController
 
     if @bookmark.save
       flash[:notice] = "Bookmark was updated."
-       redirect_to [@bookmark.topic, @bookmark]
+       redirect_to @bookmark.topic
      else
        flash.now[:alert] = "There was an error saving the bookmark. Please try again."
        render :edit
      end
+  end
 
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+
+    if @bookmark.destroy
+      flash[:notice] = "bookmark deleted"
+      redirect_to topics_index_url
+    else
+      flash[:alert] = "There was an error deleting this bookmark"
+    end
   end
 
   private
