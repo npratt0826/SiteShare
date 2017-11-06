@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to root_path
+      UserMailer.with(user: @user).new_user.deliver_now
     else
       render 'new'
     end
