@@ -1,20 +1,6 @@
 Rails.application.routes.draw do
 
-  # get 'bookmarks/index'
-  #
-  # get 'bookmarks/new'
-  #
-  # get 'bookmarks/edit'
-  #
-  # get 'bookmarks/create'
 
-  get 'topics/index'
-
-  get 'topics/show'
-
-  get 'topics/new'
-
-  get 'topics/edit'
 
   resources :topics
 
@@ -23,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   root 'welcome#index'
-
+  post :incoming, to: 'incoming#create'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
