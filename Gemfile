@@ -36,7 +36,7 @@ gem 'bootstrap-sass'
 # gem 'capistrano-rails', group: :development
 gem 'figaro'
 #mailgun
-gem 'mailgun-ruby', '~>1.1.6'
+gem 'mailgun_rails'
 group :production do
   # Use pg as the production database for Active Record
   gem 'pg'
