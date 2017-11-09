@@ -14,6 +14,7 @@ require 'faker'
     password: Faker::Internet.password(8),
 )
 end
+users = User.all
 
 me = User.new(
   email: 'napratt0826@yahoo.com',
@@ -27,18 +28,19 @@ me.save!
 5.times do
   Topic.create!(
     title: Faker::Pokemon.unique.name,
-    user: me
+    user: users.sample
   )
 end
 topics = Topic.all
 
 30.times do
   Bookmark.create!(
+    user: users.sample,
     topic: topics.sample,
     url: Faker::Internet.unique.url
   )
 end
-booksmark = Bookmark.all
+bookmarks = Bookmark.all
 
 puts "Seed finished"
 puts "#{User.count} Users created"
