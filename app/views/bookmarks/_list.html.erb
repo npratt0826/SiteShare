@@ -1,0 +1,14 @@
+<div class="row">
+  <% topic.bookmarks.each do |bookmark| %>
+  <div class="col-sm-8">
+    <div class="well bookmark_box">
+      <%= bookmark.url %> <br>
+      <%= link_to "Delete", bookmark, method: :delete, class: 'glyphicon glyphicon-remove-circle', data: { confirm: "Are you sure you want to delete this bookmark?" } %> <br>
+      <%= link_to "Edit", edit_bookmark_path(bookmark), class: 'glyphicon glyphicon-pencil' %>
+    </div>
+    <div class="button_placement">
+    <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -49,7 +49,7 @@ class BookmarksController < ApplicationController
 
     if @bookmark.destroy
       flash[:notice] = "bookmark deleted"
-      redirect_to @bookmark.topic
+      redirect_to [@bookmark.topic, @bookmark]
     else
       flash[:alert] = "There was an error deleting this bookmark"
     end
