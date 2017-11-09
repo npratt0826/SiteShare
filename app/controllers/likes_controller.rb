@@ -9,7 +9,7 @@ class LikesController < ApplicationController
     like = current_user.likes.build(bookmark: @bookmark)
 
     if like.save
-      flash[:notice] = "You liked this site"
+      flash[:notice] = "You liked this site - #{@bookmark.url}"
 
      else
        flash.now[:alert] = "There was an error liking the site"
