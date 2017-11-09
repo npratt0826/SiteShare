@@ -11,7 +11,7 @@
          <div class="media">
            <div class="media-body">
              <h3 class="media-heading">
-               <%= link_to topic.title, topic %> -
+               <%= link_to topic.title, topic %> <br>
                <%= link_to "Delete", [@user, topic], method: :delete, class: 'btn btn-danger', data: {confirm: "Are you sure you want to delete topic?"} %>
              </h3>
              <small> created
