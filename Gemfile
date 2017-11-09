@@ -37,6 +37,7 @@ gem 'bootstrap-sass'
 gem 'figaro'
 #mailgun
 gem 'mailgun_rails'
+gem 'pundit'
 group :production do
   # Use pg as the production database for Active Record
   gem 'pg'
