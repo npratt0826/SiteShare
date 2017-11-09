@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   def show
     if current_user.present?
       @user = params[:id] ? User.find(params[:id]) : current_user
-
       @user_bookmarks = @user.bookmarks
       @liked_bookmarks = @user.likes
     else
