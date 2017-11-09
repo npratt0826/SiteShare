@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'users/show'
+
   get 'likes/index'
 
   resources :topics
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   post :incoming, to: 'incoming#create'
   devise_for :users
+  resources :users, only: [:show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

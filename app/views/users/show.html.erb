@@ -1,0 +1,24 @@
+<div>
+  <h1>
+    My Blocmarks
+  </h1>
+  <h2>
+    <%= @user.username %>
+  </h2>
+  <div>
+    <%= @user_bookmarks.each do |bookmark| %>
+      <%= bookmark.url %>
+
+
+    <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+    <% end %>
+  </div>
+
+  <h2> Liked Bookmarks </h2>
+  <div>
+    <%= @liked_bookmarks.each do |bookmark| %>
+      <%= bookmark %>
+    <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+    <% end %>
+  </div>
+</div>
